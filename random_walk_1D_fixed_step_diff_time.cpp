@@ -1,5 +1,26 @@
+// ==========================================================
+// 1D Random Walk with Fixed Step Size at Different Times
+// ----------------------------------------------------------
+// This program simulates many particles performing 1D random
+// walks on a lattice. Each particle starts at the origin and
+// takes "N" steps of fixed size 1, moving +1 or -1 with equal
+// probability at every step.
+//
+// The simulation is repeated for three walk lengths (N = 50,
+// 100, 200). For each N, the final positions of all particles
+// are recorded in a histogram. The distribution of final
+// positions approaches a Gaussian with variance N, due to the
+// central limit theorem. Scaling the position by sqrt(N) and
+// the probability by sqrt(N) collapses all three curves onto
+// a single Gaussian.
+//
+// Output: "walk4.dat" containing, for each N, a block of
+// (x, P(x)*sqrt(N), x/sqrt(N), theoretical Gaussian),
+// with blocks separated by two blank lines.
+// ==========================================================
 //g++ -O3 -march=native random_walk_1D_fixed_step_diff_time.cpp -o random_walk_1D_fixed_step_diff_time
 //./random_walk_1D_fixed_step_diff_time
+// ==========================================================
 #include <bitset>
 #include <cmath>
 #include <cstdint>
