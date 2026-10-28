@@ -10,7 +10,7 @@ import numpy as np
 def endpoint_histogram(N, M, rng):
     """Simulate M walks of N steps. Returns hist with index = pos + N, pos in [-N, N]."""
     hist = np.zeros(2 * N + 1, dtype=np.int64)
-    batch = max(1, 20_000_000 // N)            # keeps memory around 20 MB
+    batch = max(1, 20_000_000 // N)            
     done = 0
     while done < M:
         b = min(batch, M - done)
@@ -24,7 +24,7 @@ def endpoint_histogram(N, M, rng):
 def main():
     M = int(float(sys.argv[1])) if len(sys.argv) > 1 else 100_000
     steps = [50, 100, 200]
-    rng = np.random.default_rng()              # seeded once from OS entropy
+    rng = np.random.default_rng()              
 
     print("Final position vs number of particles:")
     with open("walk4.dat", "w") as fout:
@@ -45,7 +45,7 @@ def main():
                 print(line, end="")
                 fout.write(line)
             print()
-            fout.write("\n\n")                 # two blank lines = new gnuplot index
+            fout.write("\n\n")                 
 
 
 if __name__ == "__main__":
